@@ -6,12 +6,14 @@ import User from "./models/User.js";
 import Blog from "./models/blog.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import job from "./cron.js";
 
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 const app = express();
 
+job.start();
 app.use(express.json());
 app.use(cors());
 
